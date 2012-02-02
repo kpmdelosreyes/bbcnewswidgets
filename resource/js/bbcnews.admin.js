@@ -7,10 +7,10 @@ var adminPageSetup = {
 		
 		saveSetting : function()
 		{
-			if(oValidator.formName.getMessage('bbcnewswidgets_save'))
+			if(oValidator.formName.getMessage('bbcnewswidget_save'))
 			{
 				this.setCatOrder();
-				document.bbcnewswidgets_save.submit();
+				document.bbcnewswidget_save.submit();
 			}
 			else{
 				oValidator.generalPurpose.getMessage(false, "Field(s) with asterisk(*) are mandatory.");

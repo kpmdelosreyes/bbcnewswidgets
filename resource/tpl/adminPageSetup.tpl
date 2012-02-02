@@ -9,7 +9,7 @@
 
 			<p class="require"><span class="neccesary">*</span>Required</p>
 			<!-- input area -->			
-			<form class="bbcnewswidgets_save" id="bbcnewswidgets_save" name="bbcnewswidgets_save" method="POST" >
+			<form class="bbcnewswidget_save" id="bbcnewswidget_save" name="bbcnewswidget_save" method="POST" >
 				<table border="1" cellspacing="0" class="table_input_vr">
 						<colgroup>
 							<col width="115px" />
@@ -23,9 +23,9 @@
 									   <a href="javascript: adminPageSetup.catOrder('down');"><img src="/_sdk/img/bbcnewswidget/u137_original.png" alt="" /></a>
 									</p>
 									<select title="select rows" class="rows menu" id="show_html_value" size="2" name="pg_bbcnews_category" >
-										<?php foreach ($category as $key => $value):?>
+										<?php foreach ($category as $key => $value): ?>
 										<option value="<?php echo $value;?>" class="category_opt"><?php echo $value;?></option>
-										<?php endforeach;?>
+										<?php endforeach; ?>
 									</select>
 									<p>The top 3 categories will be displayed on this site.</p>
 								</td>
@@ -34,7 +34,7 @@
 								<th><label for="show_html_value">Shows Rows</label></th>
 								<td>
 									<span class="neccesary">*</span> 
-									<input id="text" name="pg_bbcnews_display_limit" style="width:20px;" type="text" fw-filter="isFill" fw-label="pg_bbcnews_display_limit" maxlength="2" value="" class="_validate" />
+									<input id="text" name="pg_bbcnews_display_limit" style="width:20px;" type="text" fw-filter="isFill&isNumberRange[1][10]" fw-label="pg_bbcnews_display_limit" maxlength="2" value="" class="_validate" />
 								</td>
 							</tr>
 													

@@ -8,14 +8,14 @@ class adminPageSetup extends Controller_Admin
 		$sInitScript = usbuilder()->init($this->Request->getAppID(), $aArgs);
 		$this->writeJs($sInitScript);
 		
-		$sFormScript = usbuilder()->getFormAction('bbcnewswidgets_save','adminExecSaveSetup');
+		$sFormScript = usbuilder()->getFormAction('bbcnewswidget_save','adminExecSaveSetup');
 		$this->writeJs($sFormScript);
 		
-		usbuilder()->validator(array('form' => 'bbcnewswidgets_save'));
+		usbuilder()->validator(array('form' => 'bbcnewswidget_save'));
 		$this->category();
 		
 		$this->importJS('bbcnews.admin');
-		$this->importCSS('default');
+		$this->importCSS('bbcnews.admin');
 		
 	    $this->View(__CLASS__);
 		

@@ -47,10 +47,11 @@ class BbcnewsUtilFeed
 
 		return $aCategory;
 	}
-
+	
 	public function parseRss($sLink)
 	{
 		$sContent = $this->download_page($sLink);
+		
 		$oRss = new SimpleXMLElement($sContent);
 
 		$aData = array();
@@ -65,8 +66,6 @@ class BbcnewsUtilFeed
 			if($media->thumbnail) {
 				$aThumb = $media->thumbnail->attributes();
 				$sThumbnail = (string) $aThumb['url'];
-			} else {
-				$sThumbnail = SERVER_PLUGIN_URL . "Bbcnews/1.0.0/images/bbc-logo.jpg";
 			}
 
 			$aData[] = array(
@@ -81,19 +80,16 @@ class BbcnewsUtilFeed
 		return $aData;
 	}
 
-	public function download_page($path)
-	{
+    public function download_page($path)
+    {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,$path);
-
         curl_setopt($ch, CURLOPT_FAILONERROR,1);
-        //curl_setopt($ch, CURLOPT_FOLLOWLOCATION,1);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
         curl_setopt($ch, CURLOPT_TIMEOUT, 15);
         $retValue = curl_exec($ch);                      
         curl_close($ch);
 
         return $retValue;
-	}
+    }
 }
-?>
