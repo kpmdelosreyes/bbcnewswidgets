@@ -4,11 +4,9 @@ class frontPageBbcnewswidgetTabs extends Controller_Front
 	protected function run($aArgs)
 	{
 		require_once 'builder/builderInterface.php';
-		$sInitScript = usbuilder()->init($this->Request->getAppID(), $aArgs);
-		$this->writeJs($sInitScript);
+		usbuilder()->init($this, $aArgs);
 		
-		$connectDB = new modelSetup();
-		$aList = $connectDB->getData();
+		$aList = common()->modelContents()->getData();
 		
 		$this->importCSS('bbcnews.front.blue');
 		$this->importJS('bbcnews.front');

@@ -4,11 +4,9 @@ class frontPageBbcnewswidget extends Controller_Front
 	protected function run($aArgs)
 	{
 		require_once 'builder/builderInterface.php';
-		$sInitScript = usbuilder()->init($this->Request->getAppID(), $aArgs);
-		$this->writeJs($sInitScript);
+		usbuilder()->init($this, $aArgs);
 		
-		$connectDB = new modelSetup();
-		$aList = $connectDB->getData();
+		$aList = common()->modelContents()->getData();
 
 		$this->assign('pbs_list_limit', $aList['pbs_list_limit']);
 		

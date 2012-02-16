@@ -5,12 +5,10 @@ class adminPageSetup extends Controller_Admin
 	protected function run($aArgs)
 	{
 		require_once('builder/builderInterface.php');
-		$sInitScript = usbuilder()->init($this->Request->getAppID(), $aArgs);
-		$this->writeJs($sInitScript);
-		
-		$sFormScript = usbuilder()->getFormAction('bbcnewswidget_save','adminExecSaveSetup');
-		$this->writeJs($sFormScript);
-		
+		usbuilder()->init($this, $aArgs);
+			
+		usbuilder()->getFormAction('bbcnewswidget_save','adminExecSaveSetup');
+				
 		usbuilder()->validator(array('form' => 'bbcnewswidget_save'));
 		$this->category();
 		
