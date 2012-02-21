@@ -6,7 +6,8 @@ class adminPageSetup extends Controller_Admin
 	{
 		require_once('builder/builderInterface.php');
 		usbuilder()->init($this, $aArgs);
-			
+		
+		$aOption['seq'] = $aArgs['seq'];
 		usbuilder()->getFormAction('bbcnewswidget_save','adminExecSaveSetup');
 				
 		usbuilder()->validator(array('form' => 'bbcnewswidget_save'));
