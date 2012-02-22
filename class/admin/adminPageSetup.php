@@ -16,6 +16,7 @@ class adminPageSetup extends Controller_Admin
 		$this->importJS('bbcnews.admin');
 		$this->importCSS('bbcnews.admin');
 		
+		$this->assign("seq" , $aOption['seq']);
 	    $this->View(__CLASS__);
 		
 	}
